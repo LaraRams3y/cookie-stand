@@ -14,15 +14,15 @@ let seattle = {
   minCust: 23,
   maxCust: 65,
   avgCookieBought: 6.3,
-  randoCookie: 0,
-  randomCookieSalesGenerator: function(min,max){
+  randomCustomers: 0,
+  randomCustomersGenerator: function(min,max){
     return Math.floor(Math.random() * (max - min + 1) + min); // inclusive min & max - got from MDN
   },
-  getRandoCookie: function(){
-    this.randocookie = this.randomCookieSalesGenerator(23,65);
+  getRandomCustomers: function(){
+    this.randomCustomers = this.randomCustomersGenerator(23,65);
   },
   render: function(){
-    this.getRandoCookie();
+    this.getRandomCustomers();
   }
 };
 
@@ -31,15 +31,15 @@ let tokyo = {
   minCust: 3,
   maxCust: 24,
   avgCookieBought: 1.2,
-  randoCookie: 0,
-  randomCookieSalesGenerator: function(min,max){
-    return Math.floor(Math.random() * (max - min + 1) + min);
+  randomCustomers: 0,
+  randomCustomersGenerator: function(min,max){
+    return Math.floor(Math.random() * (max - min + 1) + min); // inclusive min & max - got from MDN
   },
-  getRandoCookie: function(){
-    this.randocookie = this.randomCookieSalesGenerator(3,24);
+  getRandomCustomers: function(){
+    this.randomCustomers = this.randomCustomersGenerator(23,65);
   },
   render: function(){
-    this.getRandoCookie();
+    this.getRandomCustomers();
   }
 };
 
