@@ -6,23 +6,31 @@ console.dir(cookieStoreLocation);
 
 let hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm',];
 
-// put Helper Functions and Utilities here
+// Put Helper Functions and Utilities here
 
-// put Object Literals here
+// Put Object Literals here
 let seattle = {
   name: 'Seattle',
   minCust: 23,
   maxCust: 65,
   avgCookieBought: 6.3,
-  randomCustomers: 0,
+  hourlyCustomers: 0,
+  hourlyCookiesSold: [],
+  totalCookies: 0,
+  // **random cookie generator**
   randomCustomersGenerator: function(min,max){
-    return Math.floor(Math.random() * (max - min + 1) + min); // inclusive min & max - got from MDN
+    return Math.floor(Math.random() * (max - min + 1) + min) // inclusive min & max - got from MDN
   },
-  getRandomCustomers: function(){
-    this.randomCustomers = this.randomCustomersGenerator(23,65);
+  getCustomers: function() {
+    this.hourlyCustomers = this.randomCustomersGenerator(this.minCust,this.maxCust);
+    return this.hourlyCustomers;
   },
   render: function(){
     this.getRandomCustomers();
+  },
+  //loop that goes through hours array and creates number of customers and multiplies cookies
+  render: function (){
+    
   }
 };
 
@@ -31,16 +39,6 @@ let tokyo = {
   minCust: 3,
   maxCust: 24,
   avgCookieBought: 1.2,
-  randomCustomers: 0,
-  randomCustomersGenerator: function(min,max){
-    return Math.floor(Math.random() * (max - min + 1) + min); // inclusive min & max - got from MDN
-  },
-  getRandomCustomers: function(){
-    this.randomCustomers = this.randomCustomersGenerator(23,65);
-  },
-  render: function(){
-    this.getRandomCustomers();
-  }
 };
 
 let dubai = {
