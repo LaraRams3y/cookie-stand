@@ -33,13 +33,31 @@ let seattle = {
       console.log(this.hourlyCustomers);
       let cookies = (this.avgCookieBought * this.hourlyCustomers[i]);
       console.log(cookies);
-      
       this.totalCookies += cookies;
       console.log (this.totalCookies);
-
       this.hourlyCookiesSold.push(cookies.toFixed(2));
     }
     console.log(this.hourlyCookiesSold);
+
+    let articleEle = document.createElement('article');
+    //parent.appendChild()
+    salmonCookieSection.appendChild(articleEle);
+
+    let seattleHeading = document.createElement('h2');
+    kittenHeading.innerText = this.name;
+    articleEle.appendChild(seattleHeading);
+
+    let seattleUL = document.createElement('ul');
+    articleEle.appendChild(seattleUL);
+
+    for(let i = 0; i < hours.length; i++){
+      let seattleSalesList = document.createElement('li');
+      seattleSalesList.textContent = `${hours[i]}: ${this.hourlyCookiesSold[i]} cookies`;
+      seattleUL.appendChild(seattleSalesList);
+    }
+
+    let seattleTotal = document.createElement('li');
+    seattleTotal.textContent = this.totalCookies;
   }
 };
   
