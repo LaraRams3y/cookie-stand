@@ -1,14 +1,14 @@
-// put Global Variable here
+// **PUT GLOBAL VARIABLES HERE**
 
-let cookieStoreLocation = document.getElementById('cookie-store-locale');
+//let cookieStoreLocation = document.getElementById('cookie-store-locale');
 
-console.dir(cookieStoreLocation);
+//console.dir(cookieStoreLocation);
 
 let hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm',];
 
-// Put Helper Functions and Utilities here
+// **PUT HELPER FUNCTIONS & UTILITIES HERE**
 
-// Put Object Literals here
+// **PUT OBJECT LITERALS HERE**
 let seattle = {
   name: 'Seattle',
   minCust: 23,
@@ -17,14 +17,12 @@ let seattle = {
   hourlyCustomers: 0,
   hourlyCookiesSold: [],
   totalCookies: 0,
-
-  // **random cookie generator**
+    // **random cookie generator**
   generateRandomCustomers: function(min,max){
-    return Math.floor(Math.random() * (max - min + 1) + min) // inclusive min & max - got from MDN
+    return Math.floor(Math.random() * (max - min + 1) + min); // inclusive min & max - got from MDN
   },
   getCustomers: function() {
     this.hourlyCustomers = this.generateRandomCustomers(this.minCust,this.maxCust);
-    return this.hourlyCustomers;
   },
   
   //loop that goes through hours array and creates number of customers and multiplies cookies
@@ -41,6 +39,7 @@ let seattle = {
     console.log(this.hourlyCookiesSold)
   }
 }
+  
 
 let tokyo = {
   name: 'Tokyo'
@@ -70,10 +69,11 @@ let lima = {
   avgCookieBought: 4.6,
 }
 
-// put Executable Code here
+// **PUT EXECUTABLE CODE HERE**
+
+console.log(seattle);
 
 seattle.render();
-console.log(seattle);
 tokyo.render();
 dubai.render();
 paris.render();
