@@ -176,19 +176,109 @@ let dubai = {
   }
 };
 
-// let paris = {
-//   name: 'Paris'
-//   minCust: 20,
-//   maxCust: 38,
-//   avgCookieBought: 2.3,
-// }
+let paris = {
+  name: 'Paris',
+  minCust: 20,
+  maxCust: 38,
+  avgCookieBought: 2.3,
+  hourlyCustomers: [],
+  hourlyCookiesSold: [],
+  totalCookies: 0,
+  generateRandomCustomers: function(min,max){
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  },
+  getCustomers: function(){
+    for (let i = 0; i < hours.length; i++){
+      this.hourlyCustomers.push(this.generateRandomCustomers(this.minCust,this.maxCust));
+      console.log(this.hourlyCustomers);
+    }
+  },
+  getTotal: function (){
+    this.getCustomers();
+    for (let i = 0; i < hours.length; i++){
+      console.log(this.hourlyCustomers);
+      let cookies = (this.avgCookieBought * this.hourlyCustomers[i]);
+      console.log(cookies);
+      this.totalCookies += cookies;
+      console.log (this.totalCookies);
+      this.hourlyCookiesSold.push(cookies.toFixed(2));
+    }
+    console.log(this.hourlyCookiesSold);
+  },
+  render: function(){
+    this.getTotal();
+    let articleEle = document.createElement('p');
+    console.log(articleEle);
+    salmonCookieSection.appendChild(articleEle);
+    let parisHeading = document.createElement('h2');
+    parisHeading.innerText = this.name;
+    articleEle.appendChild(parisHeading);
 
-// let lima = {
-//   name: 'Lima'
-//   minCust: 2,
-//   maxCust: 16,
-//   avgCookieBought: 4.6,
-// }
+    let parisUL = document.createElement('ul');
+    articleEle.appendChild(parisUL);
+
+    for(let i = 0; i < hours.length; i++){
+      let parisSalesList = document.createElement('li');
+      parisSalesList.textContent = `${hours[i]}: ${this.hourlyCookiesSold[i]} cookies`;
+      parisUL.appendChild(parisSalesList);
+    }
+
+    let parisTotal = document.createElement('li');
+    parisTotal.textContent = this.totalCookies;
+  }
+};
+
+let lima = {
+  name: 'Lima',
+  minCust: 2,
+  maxCust: 16,
+  avgCookieBought: 4.6,
+  hourlyCustomers: [],
+  hourlyCookiesSold: [],
+  totalCookies: 0,
+  generateRandomCustomers: function(min,max){
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  },
+  getCustomers: function(){
+    for (let i = 0; i < hours.length; i++){
+      this.hourlyCustomers.push(this.generateRandomCustomers(this.minCust,this.maxCust));
+      console.log(this.hourlyCustomers);
+    }
+  },
+  getTotal: function (){
+    this.getCustomers();
+    for (let i = 0; i < hours.length; i++){
+      console.log(this.hourlyCustomers);
+      let cookies = (this.avgCookieBought * this.hourlyCustomers[i]);
+      console.log(cookies);
+      this.totalCookies += cookies;
+      console.log (this.totalCookies);
+      this.hourlyCookiesSold.push(cookies.toFixed(2));
+    }
+    console.log(this.hourlyCookiesSold);
+  },
+  render: function(){
+    this.getTotal();
+    let articleEle = document.createElement('p');
+    console.log(articleEle);
+    salmonCookieSection.appendChild(articleEle);
+    let limaHeading = document.createElement('h2');
+    limaHeading.innerText = this.name;
+    articleEle.appendChild(limaHeading);
+
+    let limaUL = document.createElement('ul');
+    articleEle.appendChild(limaUL);
+
+    for(let i = 0; i < hours.length; i++){
+      let limaSalesList = document.createElement('li');
+      limaSalesList.textContent = `${hours[i]}: ${this.hourlyCookiesSold[i]} cookies`;
+      limaUL.appendChild(limaSalesList);
+    }
+
+    let limaTotal = document.createElement('li');
+    limaTotal.textContent = this.totalCookies;
+  }
+};
 
 // // **PUT EXECUTABLE CODE HERE**
 
@@ -197,6 +287,6 @@ let dubai = {
 seattle.render();
 tokyo.render();
 dubai.render();
-// paris.render();
-// lima.render();
+paris.render();
+lima.render();
 
