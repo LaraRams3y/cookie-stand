@@ -1,0 +1,18 @@
+header {
+  font-family: 'Righteous', sans-serif;
+  background-color: black;
+}
+
+nav {
+  background-color: salmon;
+  color: black;
+}
+
+body {
+  font-family: Segoe UI, Tahoma, Geneva, 'Verdana', sans-serif;
+  background-color: white;
+}
+
+text {
+  font-family: Cambria, Cochin, 'Georgia', Times, Times New Roman, serif;
+}
