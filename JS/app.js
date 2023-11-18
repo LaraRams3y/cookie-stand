@@ -31,7 +31,7 @@ let seattle = {
     this.getCustomers();
     for (let i = 0; i < hours.length; i++){
       console.log(this.hourlyCustomers);
-      let cookies = (this.avgCookieBought * this.hourlyCustomers[i]);
+      let cookies = Math.ceil(this.avgCookieBought * this.hourlyCustomers[i]);
       console.log(cookies);
       this.totalCookies += cookies;
       console.log (this.totalCookies);
@@ -55,12 +55,13 @@ let seattle = {
 
     for(let i = 0; i < hours.length; i++){
       let seattleSalesList = document.createElement('li');
-      seattleSalesList.textContent = `${hours[i]}: ${this.hourlyCookiesSold[i]} cookies`;
+      seattleSalesList.innerText = `${hours[i]}: ${this.hourlyCookiesSold[i]} cookies`;
       seattleUL.appendChild(seattleSalesList);
     }
 
     let seattleTotal = document.createElement('li');
-    seattleTotal.textContent = this.totalCookies;
+    seattleTotal.innerText = `Total Sales: ${this.totalCookies}`;
+    seattleUL.appendChild(seattleTotal);
   }
 };
   
@@ -88,7 +89,7 @@ let tokyo = {
     this.getCustomers();
     for (let i = 0; i < hours.length; i++){
       //console.log(this.hourlyCustomers);
-      let cookies = (this.avgCookieBought * this.hourlyCustomers[i]);
+      let cookies = Math.ceil(this.avgCookieBought * this.hourlyCustomers[i]);
       //console.log(cookies);
       //this.totalCookies = this.totalCookies + cookies
       this.totalCookies += cookies; //adding cookiesBought to the total with every iteration
@@ -118,7 +119,8 @@ let tokyo = {
     }
 
     let tokyoTotal = document.createElement('li');
-    tokyoTotal.textContent = this.totalCookies;
+    tokyoTotal.innerText = `Total Sales: ${this.totalCookies}`;
+    tokyoUL.appendChild(tokyoTotal);
   }
 };
 
@@ -145,7 +147,7 @@ let dubai = {
     this.getCustomers();
     for (let i = 0; i < hours.length; i++){
       console.log(this.hourlyCustomers);
-      let cookies = (this.avgCookieBought * this.hourlyCustomers[i]);
+      let cookies = Math.ceil(this.avgCookieBought * this.hourlyCustomers[i]);
       console.log(cookies);
       this.totalCookies += cookies;
       console.log (this.totalCookies);
@@ -173,7 +175,8 @@ let dubai = {
     }
 
     let dubaiTotal = document.createElement('li');
-    dubaiTotal.textContent = this.totalCookies;
+    dubaiTotal.innerText = `Total Sales: ${this.totalCookies}`;
+    dubaiUL.appendChild(dubaiTotal);
   }
 };
 
@@ -198,7 +201,7 @@ let paris = {
     this.getCustomers();
     for (let i = 0; i < hours.length; i++){
       console.log(this.hourlyCustomers);
-      let cookies = (this.avgCookieBought * this.hourlyCustomers[i]);
+      let cookies = Math.ceil(this.avgCookieBought * this.hourlyCustomers[i]);
       console.log(cookies);
       this.totalCookies += cookies;
       console.log (this.totalCookies);
@@ -225,7 +228,8 @@ let paris = {
     }
 
     let parisTotal = document.createElement('li');
-    parisTotal.textContent = this.totalCookies;
+    parisTotal.innerText = `Total Sales: ${this.totalCookies}`;
+    parisUL.appendChild(parisTotal);
   }
 };
 
@@ -250,7 +254,7 @@ let lima = {
     this.getCustomers();
     for (let i = 0; i < hours.length; i++){
       console.log(this.hourlyCustomers);
-      let cookies = (this.avgCookieBought * this.hourlyCustomers[i]);
+      let cookies = Math.ceil(this.avgCookieBought * this.hourlyCustomers[i]);
       console.log(cookies);
       this.totalCookies += cookies;
       console.log (this.totalCookies);
@@ -277,7 +281,8 @@ let lima = {
     }
 
     let limaTotal = document.createElement('li');
-    limaTotal.textContent = this.totalCookies;
+    limaTotal.innerText = `Total Sales: ${this.totalCookies}`;
+    limaUL.appendChild(limaTotal);
   }
 };
 
