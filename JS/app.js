@@ -78,23 +78,26 @@ let tokyo = {
     return Math.floor(Math.random() * (max - min + 1) + min);
   },
   getCustomers: function(){
-    for (let i = 0; i < hours.length; i++){
-      this.hourlyCustomers.push(this.generateRandomCustomers(this.minCust,this.maxCust));
-      console.log(this.hourlyCustomers);
-    }
+    this.hourlyCustomers = this.generateRandomCustomers(this.minCust,this.maxCust);
+    return this.customerNumber;
+    // for (let i = 0; i < hours.length; i++){
+    //   this.hourlyCustomers.push(this.generateRandomCustomers(this.minCust,this.maxCust));
+    //   console.log(this.hourlyCustomers);
+    // }
   },
   //loop that goes through hours array and creates number of customers and multiplies cookies
   getTotal: function (){
     this.getCustomers();
     for (let i = 0; i < hours.length; i++){
-      console.log(this.hourlyCustomers);
-      let cookies = (this.avgCookieBought * this.hourlyCustomers[i]);
-      console.log(cookies);
-      this.totalCookies += cookies;
-      console.log (this.totalCookies);
-      this.hourlyCookiesSold.push(cookies.toFixed(2));
+      //console.log(this.hourlyCustomers);
+      let cookies = Math.ceil(this.avgCookieBought * this.hourlyCustomers[i]);
+      //console.log(cookies);
+      //this.totalCookies = this.totalCookies + cookies
+      this.totalCookies += cookies; //adding cookiesBought to the total with every iteration
+      //console.log (this.totalCookies);
+      this.hourlyCookiesSold.push(cookies); //.toFixed(2));
     }
-    console.log(this.hourlyCookiesSold);
+    //console.log(this.hourlyCookiesSold);
   },
   render: function(){
     this.getTotal();
