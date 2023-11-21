@@ -20,6 +20,25 @@ function tableHeader (){
     hoursHeaderElem.innerText = `${hours[i]}`;
     tableHeaderElem.appendChild(hoursHeaderElem);
   }
+
+  let dailyTotalElem = document.createElement('th');
+  dailyTotalElem.innerText = 'Daily Total';
+  tableHeaderElem.appendChild(dailyTotalElem);
+}
+
+function tableFooter (){
+  let tableFooterElem = document.createElement('tr');
+  salmonCookieTable.appendChild(tableFooterElem);
+
+  let grandTotalsElem = document.createElement('th');
+  grandTotalsElem.innerText = 'Grand Totals';
+  tableFooterElem.appendChild(grandTotalsElem);
+
+  for(let i = 0; i < hours.length; i++){
+    let grandHoursElem = document.createElement('th');
+    grandHoursElem.innerText = allStores.totalCookies;//NEEDS HELP************<---------
+    tableFooterElem.appendChild(grandHoursElem);
+  }
 }
 
 // **PUT HELPER FUNCTIONS & UTILITIES HERE**
@@ -48,31 +67,14 @@ StoreLocationData.prototype.getCustomers = function() {
 };
 StoreLocationData.prototype.getTotal = function (){
   this.getCustomers();//loop through hours array to get number of customers and multiply cookies
- // console.log(this);
   for (let i = 0; i < hours.length; i++){
     let cookies = Math.ceil(this.avgCookiesBought * this.hourlyCust[i]);
     console.log(cookies);
     this.totalCookies += cookies;
     this.hourlyCookiesSold.push(cookies);
   }
- // console.log('location after pushing', this);
 };
 
-
-// function tableHeader (){
-//   let tableHeaderElem = document.createElement('tr');
-//   salmonCookieTable.appendChild(tableHeaderElem);
-
-//   let locationHeaderElem = document.createElement('th');
-//   locationHeaderElem.innerText = 'locations';
-//   tableHeaderElem.appendChild(locationHeaderElem);
-
-//   for(let i = 0; i < hours.length; i++){
-//     let hoursHeaderElem = document.createElement('th');
-//     hoursHeaderElem.innerText = `${hours[i]}`;
-//     tableHeaderElem.appendChild(hoursHeaderElem);
-//   }
-// }
 StoreLocationData.prototype.render = function () {
   this.getTotal();
   console.log(this.hourlyCookiesSold);
@@ -87,9 +89,11 @@ StoreLocationData.prototype.render = function () {
     let cookiesSold = document.createElement('td'); //create a 'td' for each hour inside of the loop
     cookiesSold.innerText = this.hourlyCookiesSold[i]; // give each 'td' some text. the text will be this.hourlyCookiesSold[i]
     storeRow.appendChild(cookiesSold); // append the 'td' to the correct row: storeRow
-    //why is it showing up as NaN?
-    //How do I get it to iterate through each location?
+
   }
+  let storeTotalElem = document.createElement('td');
+  storeTotalElem.innerText = this.totalCookies;
+  storeRow.appendChild(storeTotalElem);
 };
 
 // let articleEle = document.createElement('p');
@@ -135,8 +139,6 @@ StoreLocationData.prototype.render = function () {
 //   }
 // };
 
-
-
 // **PUT OBJECT LITERALS HERE**
 
 // // **PUT EXECUTABLE CODE HERE**
@@ -151,7 +153,9 @@ tableHeader();
 for (let i = 0; i < allStores.length; i++){
   allStores[i].render();
 }
- //make a for-loop to iterate over allStores and render each store
+
+tableFooter();
+//make a for-loop to iterate over allStores and render each store
 
 //seattle.render();
 //tokyo.render();
