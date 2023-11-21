@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 // **PUT GLOBAL VARIABLES HERE**
 const salmonCookieTable = document.getElementById("salmon-stuff");
@@ -48,11 +48,14 @@ StoreLocationData.prototype.getCustomers = function() {
 };
 StoreLocationData.prototype.getTotal = function (){
   this.getCustomers();//loop through hours array to get number of customers and multiply cookies
+ // console.log(this);
   for (let i = 0; i < hours.length; i++){
-    let cookies = Math.ceil(this.avgCookieBought * this.hourlyCust[i]);
+    let cookies = Math.ceil(this.avgCookiesBought * this.hourlyCust[i]);
+    console.log(cookies);
     this.totalCookies += cookies;
-    this.hourlyCookiesSold.push(cookies.toFixed(2));
+    this.hourlyCookiesSold.push(cookies);
   }
+ // console.log('location after pushing', this);
 };
 
 
@@ -72,39 +75,44 @@ StoreLocationData.prototype.getTotal = function (){
 // }
 StoreLocationData.prototype.render = function () {
   this.getTotal();
+  console.log(this.hourlyCookiesSold);
   let storeRow = document.createElement('tr');
   salmonCookieTable.appendChild(storeRow);
 
-  let storeData = document.createElement('td');
-  storeData.innerText = this.cityName;
-  storeRow.appendChild(storeData);
+  let storeName = document.createElement('td');
+  storeName.innerText = this.cityName;
+  storeRow.appendChild(storeName);
 
-// create a for loop to loop over the this.hourlyCookiesSold
-//create a 'td' for each hour inside of the loop
-// give each 'td' some text. the text will be this.hourlyCookiesSold[i]
-// append the 'td' to the correct row: storeRow
-  
-  // let articleEle = document.createElement('p');
-  // //     console.log(articleEle);
-  // //     //parent.appendChild()
-  // salmonCookieTable.appendChild(articleEle);
+  for(let i = 0; i < hours.length; i++){ // create a for loop to loop over the this.hourlyCookiesSold
+    let cookiesSold = document.createElement('td'); //create a 'td' for each hour inside of the loop
+    cookiesSold.innerText = this.hourlyCookiesSold[i]; // give each 'td' some text. the text will be this.hourlyCookiesSold[i]
+    storeRow.appendChild(cookiesSold); // append the 'td' to the correct row: storeRow
+    //why is it showing up as NaN?
+    //How do I get it to iterate through each location?
+  }
+};
 
-  // let table = document.createElement('table');
-  // articleEle.appendChild(table);
+// let articleEle = document.createElement('p');
+// //     console.log(articleEle);
+// //     //parent.appendChild()
+// salmonCookieTable.appendChild(articleEle);
 
-  // let rowHeading = document.createElement('tr');
-  // table.appendChild(rowHeading);
+// let table = document.createElement('table');
+// articleEle.appendChild(table);
 
-  // let rowCell = document.createElement('td');
-  // rowCell.innerText = `${this.getTotal}`;
-  // rowHeading.appendChild(rowCell);
+// let rowHeading = document.createElement('tr');
+// table.appendChild(rowHeading);
+
+// let rowCell = document.createElement('td');
+// rowCell.innerText = `${this.getTotal}`;
+// rowHeading.appendChild(rowCell);
 
 
-  //     for(let i = 0; i < hours.length; i++){
+//     for(let i = 0; i < hours.length; i++){
 //       let seattleSalesList = document.createElement('li');
 //       seattleSalesList.innerText = `${hours[i]}: ${this.hourlyCookiesSold[i]} cookies`;
 //       seattleUL.appendChild(seattleSalesList);
-}
+
 
 
 
@@ -139,7 +147,11 @@ new StoreLocationData('paris', 20, 38, 2.3);
 new StoreLocationData('lima',2, 16, 4.6);
 console.log(allStores);
 tableHeader();
-allStores[0].render(); //make a for loop to iterate over allStores and render each store
+
+for (let i = 0; i < allStores.length; i++){
+  allStores[i].render();
+}
+ //make a for-loop to iterate over allStores and render each store
 
 //seattle.render();
 //tokyo.render();
