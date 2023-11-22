@@ -34,9 +34,14 @@ function tableFooter (){
   grandTotalsElem.innerText = 'Grand Totals';
   tableFooterElem.appendChild(grandTotalsElem);
 
-  for(let i = 0; i < hours.length; i++){
+  for(let i = 0; i < hours.length; i++){//slow loop
+    let total = 0;
+    for(let j = 0; j < allStores[i]; j++){//fast loop
+      total += allStores[j].this.hourlyCookiesSold[j][i];
+    }
+
     let grandHoursElem = document.createElement('th');
-    grandHoursElem.innerText = allStores.totalCookies;//NEEDS HELP************<---------
+    grandHoursElem.innerText = total;//NEEDS HELP************<---------
     tableFooterElem.appendChild(grandHoursElem);
   }
 }
