@@ -36,8 +36,10 @@ function tableFooter (){
 
   for(let i = 0; i < hours.length; i++){//slow loop
     let total = 0;
-    for(let j = 0; j < allStores[i]; j++){//fast loop
-      total += allStores[j].this.hourlyCookiesSold[j][i];
+    for(let j = 0; j < allStores.length; j++){//fast loop
+      console.log(allStores);
+      total += allStores[j].hourlyCookiesSold[i];
+      console.log(total);
     }
 
     let grandHoursElem = document.createElement('th');
