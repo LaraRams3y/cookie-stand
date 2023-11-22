@@ -44,7 +44,7 @@ function tableFooter (){
 // **PUT HELPER FUNCTIONS & UTILITIES HERE**
 // ***CONSTRUCTOR FUNCTIONS***
 
-function StoreLocationData(cityName, minCust, maxCust, avgCookiesBought){
+function Store(cityName, minCust, maxCust, avgCookiesBought){
   this.cityName = cityName;
   this.minCust = minCust;
   this.maxCust = maxCust;
@@ -57,15 +57,15 @@ function StoreLocationData(cityName, minCust, maxCust, avgCookiesBought){
 
 // ***PROTOTYPE METHODS***
 // **random customers per hour generator**
-StoreLocationData.prototype.generateRandomCustomers = function(min,max){
+Store.prototype.generateRandomCustomers = function(min,max){
   return Math.floor(Math.random() * (max - min + 1) + min); // inclusive min & max from MDN
 };
-StoreLocationData.prototype.getCustomers = function() {
+Store.prototype.getCustomers = function() {
   for (let i = 0; i < hours.length; i++){
     this.hourlyCust.push(this.generateRandomCustomers(this.minCust,this.maxCust));
   }
 };
-StoreLocationData.prototype.getTotal = function (){
+Store.prototype.getTotal = function (){
   this.getCustomers();//loop through hours array to get number of customers and multiply cookies
   for (let i = 0; i < hours.length; i++){
     let cookies = Math.ceil(this.avgCookiesBought * this.hourlyCust[i]);
@@ -75,7 +75,7 @@ StoreLocationData.prototype.getTotal = function (){
   }
 };
 
-StoreLocationData.prototype.render = function () {
+Store.prototype.render = function () {
   this.getTotal();
   console.log(this.hourlyCookiesSold);
   let storeRow = document.createElement('tr');
@@ -142,11 +142,11 @@ StoreLocationData.prototype.render = function () {
 // **PUT OBJECT LITERALS HERE**
 
 // // **PUT EXECUTABLE CODE HERE**
-new StoreLocationData('seattle', 23, 65, 6.3);
-new StoreLocationData('tokyo', 3, 24, 1.2);
-new StoreLocationData('dubai', 11, 38, 3.7);
-new StoreLocationData('paris', 20, 38, 2.3);
-new StoreLocationData('lima',2, 16, 4.6);
+new Store('seattle', 23, 65, 6.3);
+new Store('tokyo', 3, 24, 1.2);
+new Store('dubai', 11, 38, 3.7);
+new Store('paris', 20, 38, 2.3);
+new Store('lima',2, 16, 4.6);
 console.log(allStores);
 tableHeader();
 
