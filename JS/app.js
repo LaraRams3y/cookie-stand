@@ -43,7 +43,7 @@ function tableFooter (){
     }
 
     let grandHoursElem = document.createElement('th');
-    grandHoursElem.innerText = total;//NEEDS HELP************<---------
+    grandHoursElem.innerText = total;
     tableFooterElem.appendChild(grandHoursElem);
   }
 }
