@@ -448,3 +448,21 @@ tableFooter();
 //     limaUL.appendChild(limaTotal);
 //   }
 // };
+//NEW FUNCTION
+
+// **PUT HELPER FUNCTIONS & UTILITIES HERE**
+// ***CONSTRUCTOR FUNCTIONS***
+
+function StoreDeets(cityName, address, operatingHours, contact){
+  this.cityName = cityName;
+  this.address = address;
+  this.operatingHours = operatingHours;
+  this.contact = contact;
+  allStoreDeets.push(this);
+}
+new StoreDeets('Seattle', '600 Broadway', '6am to 7pm', 'Seattle@SalmonCookies.bake');
+new StoreDeets('Tokyo', '3 Omotesando', '6am to 7pm', 'Tokyo@SalmonCookies.bake');
+new StoreDeets('Dubai', '11 Al Faheidi Street', '6am to 7pm', 'Dubai@SalmonCookies.bake');
+new StoreDeets('Paris', '20 Champs-Élysées', '6am to 7pm', 'Paris@SalmonCookies.bake');
+new StoreDeets('Lima', 'Av. Garcilaso de la Vega 1337', '6am to 7pm', 'Lima@SalmonCookies.bake');
+console.log(allStoreDeets);

@@ -1,17 +1,7 @@
 
-header {
-  background-color: black;
-  height: 75px;
-}
-
-nav {
-  background-color: salmon;
-  color: black;
-  height: 25px;
-}
-
 body {
   background-color: white;
+  font-family: Cambria, Cochin, 'Georgia', Times, Times New Roman, serif;
 }
 
 h1 h2 h3 {
@@ -19,8 +9,31 @@ h1 h2 h3 {
   background-color: black;
 }
 
-text {
-  font-family: Cambria, Cochin, 'Georgia', Times, Times New Roman, serif;
+header {
+  background-color: black;
+  height: 150px;
+}
+
+header img {
+  width: 120px;
+  height: 120px;
+  padding: 15px;
+}
+
+nav {
+  background-color: salmon;
+  color: black;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#heroSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
 }
 
 table {
