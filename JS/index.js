@@ -37,11 +37,12 @@ StoreDeets.prototype.render = function () {
   let storeInfoUL = document.createElement('ul');
   articleEle.appendChild(storeInfoUL);
 
-  for (let i = 0; i < allStoreDeetsArray.length; i++){
-    let allStoreDeetsArrayLI = document.createElement('li');
-    allStoreDeetsArrayLI.innerText = allStoreDeetsArray[i][1];
-    storeInfoUL.appendChild(allStoreDeetsArrayLI);
-  }
+  //for (let i = 0; i < allStoreDeetsArray.length; i++){
+  let storeAddressLI = document.createElement('li');
+  storeAddressLI.innerText = this.address;
+  storeInfoUL.appendChild(storeAddressLI);
+  //}
+  
 };
 
 new StoreDeets('Seattle', '600 Broadway', '6am to 7pm', 'Seattle@SalmonCookies.bake');
