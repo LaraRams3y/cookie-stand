@@ -1,18 +1,102 @@
-header {
+
+body {
+  background-color: white;
+  font-family: Cambria, Cochin, 'Georgia', Times, Times New Roman, serif;
+}
+
+h2 {
   font-family: 'Righteous', sans-serif;
+  font-weight: bold;
+  font-size:larger
+}
+
+#intro { 
+  margin-top: 30px;
+  font-size: 30px;
+  text-align: center;
+}
+
+#indulge {
+  text-align: center;
+}
+
+header {
   background-color: black;
+  height: 150px;
+}
+
+header img {
+  width: 120px;
+  height: 120px;
+  padding: 15px;
+  border-radius: 20px;
 }
 
 nav {
   background-color: salmon;
   color: black;
+  height: 45px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-body {
+button:hover {
+  background-color: salmon;
+}
+
+button {
+  color: white;
+  background-color: black;
+  height: 35px;
+  width: 80px;
+  margin-right: 40px;
+  border-radius: 20px;
+  transition: 450ms;
+}
+
+#hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 25px;
+}
+
+#our-stores {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 50px;
+}
+
+#family-section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 25px;
+}
+
+#fam-img {
+  height: 200px;
+  width: auto; 
+  margin: 15px;
+  align-items:
+}
+
+#about {
+  margin:15px;
+  height: 100px;
+  width: 475px;
+  overflow:auto;
+  justify-content: center;
+}
+
+table {
   font-family: Segoe UI, Tahoma, Geneva, 'Verdana', sans-serif;
   background-color: white;
 }
 
-text {
-  font-family: Cambria, Cochin, 'Georgia', Times, Times New Roman, serif;
+a {
+  color: black;
 }
+

@@ -12,7 +12,7 @@ function tableHeader (){
   salmonCookieTable.appendChild(tableHeaderElem);
 
   let locationHeaderElem = document.createElement('th');
-  locationHeaderElem.innerText = 'locations';
+  locationHeaderElem.innerText = 'Locations';
   tableHeaderElem.appendChild(locationHeaderElem);
 
   for(let i = 0; i < hours.length; i++){
@@ -37,13 +37,11 @@ function tableFooter (){
   for(let i = 0; i < hours.length; i++){//slow loop
     let total = 0;
     for(let j = 0; j < allStores.length; j++){//fast loop
-      console.log(allStores);
       total += allStores[j].hourlyCookiesSold[i];
-      console.log(total);
     }
 
     let grandHoursElem = document.createElement('th');
-    grandHoursElem.innerText = total;//NEEDS HELP************<---------
+    grandHoursElem.innerText = total;
     tableFooterElem.appendChild(grandHoursElem);
   }
 }
@@ -76,7 +74,6 @@ Store.prototype.getTotal = function (){
   this.getCustomers();//loop through hours array to get number of customers and multiply cookies
   for (let i = 0; i < hours.length; i++){
     let cookies = Math.ceil(this.avgCookiesBought * this.hourlyCust[i]);
-    console.log(cookies);
     this.totalCookies += cookies;
     this.hourlyCookiesSold.push(cookies);
   }
@@ -84,7 +81,6 @@ Store.prototype.getTotal = function (){
 
 Store.prototype.render = function () {
   this.getTotal();
-  console.log(this.hourlyCookiesSold);
   let storeRow = document.createElement('tr');
   salmonCookieTable.appendChild(storeRow);
 
@@ -149,12 +145,12 @@ Store.prototype.render = function () {
 // **PUT OBJECT LITERALS HERE**
 
 // // **PUT EXECUTABLE CODE HERE**
-new Store('seattle', 23, 65, 6.3);
-new Store('tokyo', 3, 24, 1.2);
-new Store('dubai', 11, 38, 3.7);
-new Store('paris', 20, 38, 2.3);
-new Store('lima',2, 16, 4.6);
-console.log(allStores);
+new Store('Seattle', 23, 65, 6.3);
+new Store('Tokyo', 3, 24, 1.2);
+new Store('Dubai', 11, 38, 3.7);
+new Store('Paris', 20, 38, 2.3);
+new Store('Lima',2, 16, 4.6);
+
 tableHeader();
 
 for (let i = 0; i < allStores.length; i++){
