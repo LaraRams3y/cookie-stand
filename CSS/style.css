@@ -69,9 +69,26 @@ button {
   margin: 50px;
 }
 
+#family-section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 25px;
+}
+
 #fam-img {
-  height: 20vw;
+  height: 200px;
   width: auto; 
+  margin: 15px;
+  align-items:
+}
+
+#about {
+  margin:15px;
+  height: 100px;
+  width: 475px;
+  overflow:auto;
+  justify-content: center;
 }
 
 table {
