@@ -42,7 +42,13 @@ StoreDeets.prototype.render = function () {
   storeAddressLI.innerText = this.address;
   storeInfoUL.appendChild(storeAddressLI);
   //}
-  
+  let operatingHoursLI = document.createElement('li');
+  operatingHoursLI.innerText = this.operatingHours;
+  storeInfoUL.appendChild(operatingHoursLI);
+
+  let storeContactLI = document.createElement('li');
+  storeContactLI.innerText = this.contact;
+  storeInfoUL.appendChild(storeContactLI);
 };
 
 new StoreDeets('Seattle', '600 Broadway', '6am to 7pm', 'Seattle@SalmonCookies.bake');

@@ -4,9 +4,20 @@ body {
   font-family: Cambria, Cochin, 'Georgia', Times, Times New Roman, serif;
 }
 
-h1 h2 h3 {
+h2 {
   font-family: 'Righteous', sans-serif;
-  background-color: black;
+  font-weight: bold;
+  font-size:larger
+}
+
+#intro { 
+  margin-top: 30px;
+  font-size: 30px;
+  text-align: center;
+}
+
+#indulge {
+  text-align: center;
 }
 
 header {
@@ -24,7 +35,7 @@ header img {
 nav {
   background-color: salmon;
   color: black;
-  height: 40px;
+  height: 45px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -48,14 +59,19 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 50px;
+  margin: 25px;
 }
 
 #our-stores {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 15px;
+  justify-content: space-evenly;
+  margin: 50px;
+}
+
+#fam-img {
+  height: 20vw;
+  width: auto; 
 }
 
 table {
