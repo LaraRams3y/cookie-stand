@@ -6,6 +6,7 @@ console.dir(salmonCookieTable);
 
 const hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm',];
 let allStores = [];
+let allDayGrandTotal = 0;
 
 function tableHeader (){
   let tableHeaderElem = document.createElement('tr');
@@ -44,6 +45,10 @@ function tableFooter (){
     grandHoursElem.innerText = total;
     tableFooterElem.appendChild(grandHoursElem);
   }
+
+  let allDayGrandTotalElem = document.createElement('th');
+  allDayGrandTotalElem.innerText = allDayGrandTotal;
+  tableFooterElem.appendChild(allDayGrandTotalElem);
 }
 
 // **PUT HELPER FUNCTIONS & UTILITIES HERE**
@@ -74,9 +79,14 @@ Store.prototype.getTotal = function (){
   this.getCustomers();//loop through hours array to get number of customers and multiply cookies
   for (let i = 0; i < hours.length; i++){
     let cookies = Math.ceil(this.avgCookiesBought * this.hourlyCust[i]);
-    this.totalCookies += cookies;
+    this.totalCookies += cookies;// Same as saying totalCookies = totalCookies + cookies
     this.hourlyCookiesSold.push(cookies);
   }
+  allDayGrandTotal += this.totalCookies;
+  //Same as saying allDayGrandTotal = allDayGrandTotal (0) + this.totalCookies (4000) Seattle
+  //Same as saying allDayGrandTotal = allDayGrandTotal (4000) + this.totalCookies (2000) Tokyo
+  //etc...
+  console.log(allDayGrandTotal);
 };
 
 Store.prototype.render = function () {
